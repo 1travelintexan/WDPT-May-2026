@@ -1,0 +1,80 @@
+/* CSS RESET - do not remove */
+/* Reset default browser styles and provide a consistent starting point */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+}
+
+/*  Set the font */
+body {
+  font-family: "Helvetica", sans-serif;
+}
+
+/* STYLES */
+/* Write your CSS below */
+body {
+  background-color: black;
+  color: white;
+}
+#header-container {
+  background-image: url("../images/apple-pie.jpg");
+  background-size: cover;
+  height: 250px;
+  text-align: center;
+  align-content: center;
+}
+main {
+  width: 80%;
+  margin: 50px 50px 20px 50px;
+}
+.small-image {
+  width: 70%;
+  margin: 40px 15%;
+}
+.line-break {
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+h4 {
+  margin: 20px 0;
+}
+ul {
+  list-style-type: "- ";
+}
+ul,
+ol {
+  margin-left: 30px;
+}
+ol {
+  list-style: none; /* Disable default numbering */
+  counter-reset: my-counter;
+}
+
+ol li {
+  counter-increment: my-counter; /* Increment counter */
+}
+
+ol li::before {
+  content: counter(my-counter) ".) "; /* Add the ) after the number */
+}
