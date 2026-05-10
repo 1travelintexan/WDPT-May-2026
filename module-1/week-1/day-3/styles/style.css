@@ -1,0 +1,40 @@
+/* always do the mobile CSS here  */
+
+body {
+  background-color: black;
+  color: white;
+}
+.hidden {
+  display: none;
+}
+h1 {
+  background-color: rgb(7, 97, 97);
+}
+article {
+  border: 2px solid white;
+  margin: 10px;
+}
+article img {
+  height: 200px;
+}
+
+/* our first break point in CSS  */
+@media screen and (min-width: 400px) {
+  h1 {
+    background-color: blue;
+  }
+  .hidden {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #pets-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  article {
+    width: 40%;
+  }
+}
