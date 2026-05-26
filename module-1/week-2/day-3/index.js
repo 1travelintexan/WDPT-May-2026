@@ -103,4 +103,6 @@ try {
   //if you have the data, then show on page
 } catch (error) {
   console.log(error);
+}finally{
+    console.log('this always happens, with try and catch')
 }
