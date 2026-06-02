@@ -1,0 +1,20 @@
+.dark-mode {
+  background-color: black;
+  color: wheat;
+}
+
+.pet-card img {
+  height: 100px;
+}
+
+.pet-card {
+  border: 2px solid white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#pet-container {
+  background-color: rgb(9, 57, 57);
+  min-height: 500px;
+}
