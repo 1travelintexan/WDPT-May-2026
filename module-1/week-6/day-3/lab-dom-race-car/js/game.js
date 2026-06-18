@@ -9,12 +9,16 @@ class Game {
     this.height = 500;
     this.width = 400;
     this.obstacles = [new Obstacle(this.gameScreen)];
+    this.projectiles = [];
     this.score = 0;
     this.lives = 1;
     this.gameIntervalId = null;
     this.gameLoopFrequency = Math.round(1000 / 60);
     this.gameIsOver = false;
     this.counter = 0;
+    //this is for sounds
+    this.shootSound = new Audio("../sounds/shoot.wav");
+    this.shootSound.volume = 0.1;
   }
   start() {
     //set the height and width
@@ -65,6 +69,28 @@ class Game {
         this.score++;
         //update the DOM to reflect the new score
         this.scoreElement.innerText = this.score;
+      }
+
+      //this is the loop for the projectiles
+      for (let j = 0; j < this.projectiles.length; j++) {
+        const currentProjectile = this.projectiles[j];
+        currentProjectile.move();
+        if (currentProjectile.didCollide(currentObstacle)) {
+          //remove the red car from the screen
+          //remove the red car from the array of obstacles
+          this.obstacles.splice(i, 1);
+          currentObstacle.element.remove();
+          i--;
+          //remove the bullet from the screen
+          this.projectiles.splice(j, 1);
+          currentProjectile.element.remove();
+          j--;
+
+          //add one to the score
+          this.score++;
+          //update the DOM to reflect the new score
+          this.scoreElement.innerText = this.score;
+        }
       }
     }
 

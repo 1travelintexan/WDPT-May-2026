@@ -23,6 +23,20 @@ window.onload = function () {
     if (event.code === "ArrowDown") {
       ourNewGame.player.directionY = 3;
     }
+
+    //this is for the projectiles
+    if (event.code === "Space") {
+      //this adds a projectile to the array
+      ourNewGame.projectiles.push(
+        new Projectile(
+          ourNewGame.gameScreen,
+          ourNewGame.player.left,
+          ourNewGame.player.top,
+        ),
+      );
+      //this plays the sound
+      ourNewGame.shootSound.play();
+    }
   });
   //keyup listeners are for when you release the key
   document.addEventListener("keyup", (e) => {
