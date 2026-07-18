@@ -40,7 +40,13 @@ const tweetsArray = [
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <Tweet oneTweet={tweetsArray[0]} />
+=======
+      <Tweet tweet={tweetsArray[0]} />
+      <Tweet tweet={tweetsArray[1]} />
+      <Tweet tweet={tweetsArray[2]} />
+>>>>>>> 3cf0dc0aed97c27b010ef986ea5ffe732fdedcc8
     </div>
   );
 }

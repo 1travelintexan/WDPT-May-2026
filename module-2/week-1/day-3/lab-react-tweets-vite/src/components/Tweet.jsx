@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function Tweet(props) {
   console.log(props);
   return (
@@ -30,6 +31,27 @@ function Tweet(props) {
           <i className="far fa-heart" data-testid="heart-icon"></i>
           <i className="fas fa-share" data-testid="share-icon"></i>
         </div>
+=======
+import ProfileImage from "./ProfileImage";
+import TimeStamp from "./TimeStamp";
+import User from "./User";
+import Message from "./Message";
+import Actions from "./Actions";
+function Tweet(props) {
+  return (
+    <div className="tweet">
+      <ProfileImage image={props.tweet.user.image} />
+      <div className="body">
+        <div className="top">
+          <User userData={props.tweet.user} />
+
+          <TimeStamp theTimestamp={props.tweet.timestamp} />
+        </div>
+
+        <Message message={props.tweet.message} />
+
+        <Actions />
+>>>>>>> 3cf0dc0aed97c27b010ef986ea5ffe732fdedcc8
       </div>
 
       <i className="fas fa-ellipsis-h"></i>
