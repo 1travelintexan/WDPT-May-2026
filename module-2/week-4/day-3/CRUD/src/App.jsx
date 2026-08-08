@@ -5,11 +5,14 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import CreateProductPage from "./pages/CreateProductPage";
 import UpdateProductPage from "./pages/UpdateProductPage";
 import Navbar from "./components/Navbar";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const { darkTheme } = useContext(ThemeContext);
+  console.log("in the app.jsx", darkTheme);
   const nav = useNavigate();
   useEffect(() => {
     async function getAllProducts() {
@@ -55,7 +58,7 @@ function App() {
     }
   }
   return (
-    <>
+    <div className={darkTheme === false ? "light-mode" : "dark-mode"}>
       <Navbar />
       <h1>CRUD</h1>
       <Routes>
@@ -74,7 +77,7 @@ function App() {
           }
         />
       </Routes>
-    </>
+    </div>
   );
 }
 

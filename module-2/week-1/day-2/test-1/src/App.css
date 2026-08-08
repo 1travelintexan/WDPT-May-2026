@@ -167,7 +167,7 @@
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: -4.5px;
     border: 5px solid transparent;
@@ -181,49 +181,4 @@
     right: 0;
     border-right-color: var(--border);
   }
-}
-
-nav {
-  background-color: rgb(16, 59, 59);
-}
-
-a {
-  text-decoration: none;
-  margin: 20px;
-}
-.active {
-  color: greenyellow;
-  font-size: 2rem;
-}
-.products-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-.product-card {
-  border: 1px solid white;
-  width: 20vw;
-  height: 35vh;
-  margin: 5px;
-}
-.product-card img {
-  width: 60%;
-  height: 40%;
-  object-fit: cover;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(28, 66, 66);
-}
-input {
-  margin: 10px;
-}
-.light-mode {
-  background-color: aliceblue;
-  color: black;
 }

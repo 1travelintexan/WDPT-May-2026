@@ -1,11 +1,15 @@
 // import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const CreateProductPage = () => {
   const [title, setTitle] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const nav = useNavigate();
+  //getting data from the context
+  const { petName } = useContext(ThemeContext);
+  console.log("in the create product page, here is the name", petName);
   async function handleAddProduct(event) {
     //first stop the page from reloading...
     event.preventDefault();
