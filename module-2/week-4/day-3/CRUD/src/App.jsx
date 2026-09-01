@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { ThemeContext } from "./contexts/ThemeContext";
+import { API_URL } from "./config";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -17,7 +18,7 @@ function App() {
   useEffect(() => {
     async function getAllProducts() {
       try {
-        const { data } = await axios("https://dummyjson.com/products");
+        const { data } = await axios(`${API_URL}/products`);
         console.log(data);
         setProducts(data.products);
       } catch (error) {
