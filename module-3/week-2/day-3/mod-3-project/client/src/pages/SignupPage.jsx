@@ -9,11 +9,18 @@ const SignupPage = () => {
   const nav = useNavigate();
   async function handleSignup(event) {
     event.preventDefault();
-    const formUser = { username, email, password };
+
+    const image = event.target.image.files[0];
+    const formData = new FormData();
+    formData.append("imageUrl", image);
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+
     try {
       const newUserInDB = await axios.post(
         "http://localhost:5005/auth/signup",
-        formUser,
+        formData,
       );
       console.log("user created in DB", newUserInDB);
       nav("/login");
@@ -54,6 +61,7 @@ const SignupPage = () => {
             setPassword(e.target.value);
           }}
         />
+        <input type="file" name="image" />
         <button>Signup</button>
       </form>
       <p>

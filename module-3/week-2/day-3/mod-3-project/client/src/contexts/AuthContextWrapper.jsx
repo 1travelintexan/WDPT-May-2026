@@ -36,7 +36,6 @@ export const AuthWrapper = ({ children }) => {
           setCurrentUser(null);
           setIsLoading(false);
           setIsLoggedIn(false);
-          nav("/login");
         }
       } else {
         console.log("there is no token in local storage");
