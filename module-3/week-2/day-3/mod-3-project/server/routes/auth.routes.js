@@ -3,9 +3,9 @@ const UserModel = require("../models/User.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const isTokenValid = require("../middlewares/jwt.middleware");
-
+const uploader = require("../middlewares/cloudinary.config");
 //sign up route to create a new user
-router.post("/signup", async (req, res) => {
+router.post("/signup", uploader.single("imageUrl"), async (req, res) => {
   try {
     const { username, email, password } = req.body;
     //check if the email or username are already taken
@@ -25,6 +25,8 @@ router.post("/signup", async (req, res) => {
     //   return res.status(400).json({ errorMessage: "Password too weak" });
     // }
 
+    //cloudinary uploader section
+    console.log("here is the file from cloudinary", req.file);
     //before creating a user, hash the password for security
     const saltRounds = 12;
     const theSalt = bcrypt.genSaltSync(saltRounds);
@@ -32,6 +34,7 @@ router.post("/signup", async (req, res) => {
     const createdUser = await UserModel.create({
       ...req.body,
       password: hashedPassword,
+      profilePicture: req.file.path,
     });
     res.status(201).json(createdUser);
   } catch (error) {
@@ -78,5 +81,15 @@ router.post("/login", async (req, res) => {
 //verify route to check the token
 router.get("/verify", isTokenValid, (req, res) => {
   res.json({ message: "verify route all good", payload: req.payload });
+});
+
+router.get("/profile/:userId", async (req, res) => {
+  try {
+    const profileUser = await UserModel.findById(req.params.userId);
+    res.status(200).json(profileUser);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
 });
 module.exports = router;
